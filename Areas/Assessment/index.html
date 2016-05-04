@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="../../Content/css/site.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container" ng-controller="Assessment">
+		<div movie-search></div>
+
+		<div class="row margin-top-20" ng-show="model.OMDb.data.show">
+			<div class="col-xs-12 col-md-4">
+				<div class="text-center">
+					<img ng-src="{{model.OMDb.data.Poster}}" alt="{{model.OMDb.data.Title}} {{model.OMDb.data.Year}} Poster" />
+				</div>
+
+				<ul class="blank-list margin-top-20">
+					<li><strong>Title:</strong> {{model.OMDb.data.Title}}</li>
+					<li><strong>Year:</strong> {{model.OMDb.data.Year}}</li>
+					<li><strong>Awards:</strong> {{model.OMDb.data.Awards}}</li>
+				</ul>
+			</div>
+
+			<div class="col-xs-12 col-md-8">
+				<h1>{{model.OMDb.data.Title}} ({{model.OMDb.data.Year}})</h1>
+				<h4 class="col-xs-12 col-md-6 no-padding">IMDb Rating: {{model.OMDb.data.imdbRating}}</h4>
+				<h4 class="col-xs-12 col-md-6 no-padding text-right">Genre: {{model.OMDb.data.Genre}}</h4>
+				<p>
+					{{model.OMDb.data.Plot}}
+				</p>
+
+				<hr />
+
+				<ul class="blank-list">
+					<li>
+						<strong>Director:</strong> {{model.OMDb.data.Director}}
+					</li>
+					<li>
+						<strong>Writer:</strong> {{model.OMDb.data.Writer}}
+					</li>
+					<li>
+						<strong>Actors:</strong> {{model.OMDb.data.Actors}}
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+	<!-- begin:Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.js"></script>
+	<!-- end:Libraries -->
+	<!-- begin:App -->
+	<script src="../../Scripts/angular/app/app.js"></script>
+	<!-- end:App -->
+	<!-- begin:Services -->
+	<script src="../../Scripts/angular/app/services/helpers.js"></script>
+	<script src="../../Scripts/angular/app/services/services.js"></script>
+	<!-- end:Services -->
+	<!-- begin:Controllers -->
+	<script src="../../Scripts/angular/app/controllers/assessment.js"></script>
+	<!-- end:Controllers -->
+	<!-- begin:Directives -->
+	<script src="../../Scripts/angular/app/directives/ngMovieSearch.js"></script>
+	<!-- end:Directives -->
+	<!-- begin:Plugins -->
+	<!-- end:Plugins -->
+</body>
+</html>
